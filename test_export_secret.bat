@@ -1,0 +1,24 @@
+@echo off
+set SEN=key1.com
+set IP=127.0.0.1
+set PORT=8888
+REM
+set PSK=0102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F20
+set id=Client_identity
+REM
+set key=1234567890ABCDEF1234567890ABCDEF
+set type=00
+set keyid=E1E2E3E4
+REM
+set seed=1234567890ABCDEF1234567890ABCDEF
+REM m/0’/1’/2’/3’
+set path=80000000800000018000000280000003
+REM
+set blob=003000E1E2E3E45EAE2CC17EFE856DBC8FAE94AB157258E1632ADBBBD3E4A2A7D95FF14A9CF38C4FD054070FC46FC4C6C205A5
+REM
+tlsse -c -H #?30%key% -H #c30 -H #t30%seed% -H #v30 -H #?02 -S  %SEN% -s -p %PORT% -h  %IP% -l TLS13-AES128-CCM-SHA256 -H psk%PSK% -H identity%id%
+tlsse -c -H #?32%type%3000%keyid%  -H #?02 -S  %SEN% -s -p %PORT% -h  %IP% -l TLS13-AES128-CCM-SHA256 -H psk%PSK% -H identity%id%
+tlsse -c -H #?33%type%3000%keyid%  -H #?02 -S  %SEN% -s -p %PORT% -h  %IP% -l TLS13-AES128-CCM-SHA256 -H psk%PSK% -H identity%id%
+tlsse -c -H #c30 -H #v30 -H #?34%blob% -H #v30 -H #b00%path% -H #?02 -S  %SEN% -s -p %PORT% -h  %IP% -l TLS13-AES128-CCM-SHA256 -H psk%PSK% -H identity%id%
+REM
+PAUSE

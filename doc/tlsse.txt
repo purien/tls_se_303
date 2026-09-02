@@ -1,0 +1,87 @@
+﻿tlsse arguments
+option	                      comment
+
+-c, c	                      Start TLSPSK client
+client	                      Start TLSPSK client, default options
+tclient   	              TLSPSK test client with tlsim card
+im	                      TLSPSK test server (psk and pki) with tlsim. Wait for message. Send banner
+se	                      TLSPSK server test with tlsse card
+sse	                      TLSPSK server test echo with test tlsse card (github version)
+-s	                      Use PSK
+-h [hostname}	              Server Name
+-p [port}	              Server Port
+-l [ciphersuite}	      Server CipherSuite
+                              TLS_AES_128_GCM_SHA256
+                              TLS_AES_128_CCM_SHA256
+
+-H Extended Option name[parameter]
+
+-H S[ServerName]	      Server name
+-H psk[PSKVALUE]	      Server PSK Key
+-H identity[IDVALUE]	      Server TLS-PSK Identity
+-H #[COMMAND]	              Send a text command to server, ! exit
+-H ##[COMMAND]	              Send a binary command to server
+-H *[COMMAND]	              Send a text command to server, ! exit
+-H *#[COMMAND]	              Send a binary command to server
+-H @xyx[COMMAND]	      Send a command xyz time to server
+-H @xyx#[COMMAND]	      Send a binary command xyz time to server
+-H ttcrypto	              Crypto tests
+-H tttlsim	              TLSIM tests
+-H console	              Open a console with server
+-H noconsole	              No Console with server
+- H banner	              Read a banner from server
+-H ![delay]	              Wait delay ms after reading banner
+-H forever	              Send a fix message in console mode
+-H quiet	              No debug message
+-H verbose	              Verbose mode (default)
+-H timeout[delay]     	      Network response timeout in ms
+-H auth[PUBLICKEY]	      Authenticate with CA public key
+-H sign [PRIVKEY]	      Sign with CA private key
+-H hw[number]	              Use TLS Identity module
+                              0=pcsc, 1=serial, 2=lemonolith, 101=MFA, 144=cryptoterminal
+-H im	                      Use TLS identity module pcsc
+-H ct	                      Use CryptoTerminal, with hw=1
+-H tc	                      Use MFA, with hw=1
+-H mc	                      Use LeMonolith
+-H noim	                      No Identity Module
+-H com[number]	              Serial port number for windows
+-H serial[name]   	      Serial dev name (/dev/tty…) for linux
+-H baud[baudrate]	      Baudrate for serial tlsim
+-H reset	              Reset with DTR or TLS for serial tlsim
+-H noreset	              No reset for serial tlsim
+-H rstwait[waitime]	      Wait waittime ms after reset
+-H 	
+-H aid[AIDVALUE]	      AID parameter for tlsim
+-H pin[PINVALUE]	      PIN parameter for tlsim
+-H rh[hostname]	              remote server name
+-H rp[port}	              remote server TCP port
+-H rl[CPIHERSUITE]	      Remote server CipherSuite
+                              TLS_AES_128_GCM_SHA256 - aesccm
+                              TLS_AES_128_CCM_SHA256 - aesgcm
+-H rS[ServerName]      	      remote server name
+-H rpsk[PSKVALUE]	      remote server PSK
+-H ridentity[IDVALUE]	      remote server identity
+-H rhw[number]	              remote server hardware
+-H rim	                      Use PCSC tlsim for remote server
+-H rnoim	              No identity module for remote server
+-H rimtlsse	              remote server with binder/derive over TLSSE
+-H rimask	              remote server with binder/derive over TLSSE and ask button
+-H raid{AIDVALUE]	      tlsim AID for remote server
+-H rpin[PINVALUE]	      tlsim PIN for remote server
+-H rauth[PUBLICKEY]	      Authenticate remote server
+-R rsign[PRIVATEKEY}	      Sign remote server
+
+-H fkey[number]	              Set Key index for cipher operations
+-H meta[metadata]	      Set metadata for cipher operations
+-H Enc[filename]	      Encrypt filename to filename.bin 
+-H enc[filename]	      Encrypt filename to filename.bin 
+-H Dec[filename]              Decrypt filename.bin to filename 
+-h enc[filename]	      Decrypt filename.bin to filename 
+
+Enc: use hmac256 as key generator.
+enc: use BIP32 as key generator   
+Dec: hmac256 as key generator
+dec: BIP32 as key generator
+
+
+

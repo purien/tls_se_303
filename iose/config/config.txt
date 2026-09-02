@@ -1,0 +1,91 @@
+//////////////////////////////////////////////
+***********Configuration File*****************
+//////////////////////////////////////////////
+
+ca_file   ./cert/root.pem
+ca_dir    ./
+cert_file ./cert/server.pem
+key_file  ./cert/serverkey.pem
+password  pascal
+
+cipher_list  AES128-GCM-SHA256
+
+server_port     127.0.0.1:7777
+server_port2    127.0.0.1:8888
+
+enable_racs   yes
+enable_tls_se yes
+
+///////////////
+autostart yes
+///////////////
+
+start_delay  0       (ms)
+
+trace_dir ./trace/   (default ./)
+
+server_timeout        600000      (in ms)
+server_timeout2        30000      (in ms)
+server_cnx_timeout2    10000      (in ms)
+
+// CN that are not referenced in SEID table (SEID.txt) default access to embedded AID in SE (yes - no)
+// or no SEID.txt file
+
+se_default_access no
+
+//////////////////////
+use_sen_as_cardsn no
+
+// List only authorized SEID (default = no)
+restricted_seid_list yes
+
+i2c_max_devices 0
+i2c_first_adr   4  10 14
+i2c_reset_pins  17 27 22
+
+i2c_size 128
+
+////////////////////
+is_external_grid no
+////////////////////
+
+racs_verbose         yes
+
+secure_element_index yes
+
+reader_verbose yes
+
+reader_console yes
+
+system_console  yes
+system_console2 yes
+
+close_session_console yes //yes
+close_session_delay   0 (in ms)
+session_console_tile  yes
+racs_log  no
+
+grid_server      aserver.com
+grid_port        7777
+grid_board       pNHSM
+grid_max_slots     16
+grid_first_slot    1010 1011 1012 1017 1030 1031 1032 1033 1034 1035 1036 1037 1038 1039 1040 1041
+gridhist key7.com key8.com key9.com key20.com key30.com  key31.com key32.com key33.com key34.com key35.com key36.com key37.com  key38.com  key39.com  key40.com  key41.com 
+gridaid   010203040500
+
+// Blue Green Red
+bg_color   FFFFFF
+pen_color  000000
+font_size  18
+line_size  140
+
+// Zone TLS
+cache_enable    no
+cache_timeout   180
+cache_nb_digits 64   // max=64
+cache_for_ever  no
+
+
+
+
+

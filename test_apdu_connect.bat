@@ -1,0 +1,1 @@
+winreader -s script.txt

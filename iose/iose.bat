@@ -1,0 +1,1 @@
+start ./GoSE_console ./config/
